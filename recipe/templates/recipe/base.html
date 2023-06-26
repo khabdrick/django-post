@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Management System</title>
+    <!-- Add your CSS stylesheets or link to external stylesheets here -->
+</head>
+<body>
+    <header>
+        <h1>Recipe Management System</h1>
+        <!-- Add any header content or navigation links here -->
+    </header>
+
+    <main>
+        {% include 'recipe/search_form.html' %}
+        {% block content %}
+        <!-- This block will be overridden by content from other templates -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+</body>
+</html>

@@ -19,6 +19,8 @@ class Recipe(models.Model):
 #     #             Concat('title', 'ingredients', 'instructions',output_field=models.TextField())
 #     #         )
 #     #     )
+    class Meta:
+        indexes = [models.Index(fields=['name', 'ingredients','instructions'])]
 
     def __str__(self):
-        return self.title
+        return self.name
