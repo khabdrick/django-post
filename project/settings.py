@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipe',
-    'django.contrib.postgres',
-    'django.contrib.gis'
+    # 'django.contrib.postgres',
+    # 'django.contrib.gis'
 ]
 
 MIDDLEWARE = [
@@ -78,14 +79,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-     'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'psql',
-        'USER': 'test',
-        'PASSWORD': 'secure-password',
-        'HOST': 'db',
-        'PORT': '5432',
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
+
 
 
 # Password validation
